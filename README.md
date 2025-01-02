@@ -22,7 +22,7 @@ Trust and Recognition: Build trust between customers and service providers while
 
 ##Build with
 
-* [![Flutter]
+* ![Flutter](https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/flutter-colored.svg)
 
 
 ===============X================
