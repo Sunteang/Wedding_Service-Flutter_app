@@ -1,8 +1,8 @@
-# wedding_service_app
+# Wedding Service APP:
 
 ================X=================
 
-## About Wedding Service App:
+## About 
 ### Introduction 
 The Wedding Service App was created to simplify the process of finding services (e.g., wedding bands, photography, bridal makeup, wedding venues, wedding dresses, florists, decorations, and all other wedding-related services) that were previously difficult to locate. The app provides comprehensive information about a wide range of wedding-related services currently available in Cambodia. It ensures speed, reliability, and quality to help couples manage their wedding planning effectively. Additionally, it makes it easier for service providers to connect with potential customers.
 
