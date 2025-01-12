@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 
 class ValidateOtpScreen extends StatelessWidget {
   @override
@@ -28,9 +29,15 @@ class ValidateOtpScreen extends StatelessWidget {
               // Main content
               Column(
                 children: [
-                  Image.asset(
-                    'https://res.cloudinary.com/upwork-cloud/video/upload/c_scale,w_1000/v1627599653/catalog/1340127208642805760/pwethsxbjc3kz5tyuaap.JPEG',
-                    height: 200,
+                  Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          'https://i.pinimg.com/736x/ec/24/0b/ec240bd09f5f428b04406d3b6ba7bc05.jpg',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                   SizedBox(height: 16),
                   Text(
@@ -76,7 +83,10 @@ class ValidateOtpScreen extends StatelessWidget {
 
                   // Verify OTP button
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => NavBar()));
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,
                       shape: RoundedRectangleBorder(
@@ -87,7 +97,7 @@ class ValidateOtpScreen extends StatelessWidget {
                     ),
                     child: Text(
                       'Verify OTP',
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
 
@@ -131,22 +141,22 @@ class ValidateOtpScreen extends StatelessWidget {
               ),
 
               // Sign up prompt
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Can't have account?",
-                    style: TextStyle(color: Colors.black, fontSize: 14),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(color: Colors.pink, fontSize: 14),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     Text(
+              //       "Don't have an account?",
+              //       style: TextStyle(color: Colors.black, fontSize: 14),
+              //     ),
+              //     TextButton(
+              //       onPressed: () {},
+              //       child: Text(
+              //         'Sign Up',
+              //         style: TextStyle(color: Colors.pink, fontSize: 14),
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),

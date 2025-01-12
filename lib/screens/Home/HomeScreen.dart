@@ -7,7 +7,6 @@ import 'package:wedding_service_app/pages/service/photography/Photography.dart';
 import 'package:wedding_service_app/pages/service/band/Band.dart';
 import 'package:wedding_service_app/pages/service/dresses/Dresses.dart';
 import 'package:wedding_service_app/pages/service/venues/Venues.dart';
-import 'package:wedding_service_app/screens/Home/OffersPage.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -103,7 +102,8 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
                         image: NetworkImage(
-                            'https://i.pinimg.com/736x/09/83/5d/09835d1281ffbc3d66601fcec8097b7c.jpg'), // Replace with actual banner image URL
+                            'https://i.pinimg.com/736x/09/83/5d/09835d1281ffbc3d66601fcec8097b7c.jpg'),
+                        // 'https://cdn.vectorstock.com/i/500p/21/37/wedding-couple-vector-22022137.jpg'),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -159,6 +159,15 @@ class HomeScreen extends StatelessWidget {
                         ];
 
                         List<String> categoryImages = [
+                          //test
+                          // 'https://static.vecteezy.com/system/resources/thumbnails/044/620/039/small_2x/cartoon-wedding-couple-on-transparent-background-png.png',
+                          // 'https://static.vecteezy.com/system/resources/thumbnails/044/620/039/small_2x/cartoon-wedding-couple-on-transparent-background-png.png',
+                          // 'https://static.vecteezy.com/system/resources/thumbnails/044/620/039/small_2x/cartoon-wedding-couple-on-transparent-background-png.png',
+                          // 'https://static.vecteezy.com/system/resources/thumbnails/044/620/039/small_2x/cartoon-wedding-couple-on-transparent-background-png.png',
+                          // 'https://static.vecteezy.com/system/resources/thumbnails/044/620/039/small_2x/cartoon-wedding-couple-on-transparent-background-png.png',
+                          // 'https://static.vecteezy.com/system/resources/thumbnails/044/620/039/small_2x/cartoon-wedding-couple-on-transparent-background-png.png',
+                          // 'https://static.vecteezy.com/system/resources/thumbnails/044/620/039/small_2x/cartoon-wedding-couple-on-transparent-background-png.png',
+                          // 'https://static.vecteezy.com/system/resources/thumbnails/044/620/039/small_2x/cartoon-wedding-couple-on-transparent-background-png.png',
                           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqnJev5MkN71WTUMqdAB_iCK_x9haQdjiitg&s',
                           'https://i.pinimg.com/736x/09/83/5d/09835d1281ffbc3d66601fcec8097b7c.jpg',
                           'https://i.pinimg.com/736x/65/54/9a/65549a93b8c0514db60a04937c8c3ed9.jpg',

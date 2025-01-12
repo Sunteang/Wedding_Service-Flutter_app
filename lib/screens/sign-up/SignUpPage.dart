@@ -173,6 +173,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:wedding_service_app/screens/sign-in/SignInPage.dart';
+import 'package:wedding_service_app/screens/validate-otp-page/ValidateOTP.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
@@ -290,7 +291,12 @@ class SignUpScreen extends StatelessWidget {
 
                   // Sign Up button
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ValidateOtpScreen()));
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,
                       shape: RoundedRectangleBorder(

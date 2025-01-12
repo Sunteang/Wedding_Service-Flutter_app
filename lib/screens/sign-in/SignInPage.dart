@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 import 'package:wedding_service_app/screens/sign-up/SignUpPage.dart';
+import 'package:wedding_service_app/screens/validate-otp-page/ValidateOTP.dart';
 
 class SignInScreen extends StatelessWidget {
   @override
@@ -86,8 +87,11 @@ class SignInScreen extends StatelessWidget {
                   // Sign In button
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => NavBar()));
+                      Navigator.push(
+                          context,
+                          // MaterialPageRoute(builder: (context) => NavBar()));
+                          MaterialPageRoute(
+                              builder: (context) => ValidateOtpScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,

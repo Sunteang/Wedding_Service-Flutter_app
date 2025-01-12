@@ -1,62 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_service_app/pages/service/band/Band.dart';
+import 'package:wedding_service_app/pages/service/catering/Catering.dart';
+import 'package:wedding_service_app/pages/service/decoration/Decoration.dart';
+import 'package:wedding_service_app/pages/service/dresses/Dresses.dart';
+import 'package:wedding_service_app/pages/service/florist/Florist.dart';
+import 'package:wedding_service_app/pages/service/make-up/MakeUp.dart';
+import 'package:wedding_service_app/pages/service/photography/Photography.dart';
+import 'package:wedding_service_app/pages/service/venues/Venues.dart';
 
 class WeddingOffersPage extends StatelessWidget {
-  final List<Map<String, String>> categories = [
-    {
-      'title': 'Wedding Venues',
-      'imageUrl':
-          'https://i.pinimg.com/736x/ff/84/33/ff843394cb5bebe70910951349c337f5.jpg',
-      'results': '203 Results - in Phnom Penh'
-    },
-    {
-      'title': 'Wedding Photographer',
-      'imageUrl':
-          'https://i.pinimg.com/736x/09/83/5d/09835d1281ffbc3d66601fcec8097b7c.jpg',
-      'results': '150 Results - in Siem Reap'
-    },
-    {
-      'title': 'Wedding Band',
-      'imageUrl':
-          'https://i.pinimg.com/736x/65/54/9a/65549a93b8c0514db60a04937c8c3ed9.jpg',
-      'results': '120 Results - in Phnom Penh'
-    },
-    {
-      'title': 'Bridal Makeup',
-      'imageUrl':
-          'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-      'results': '180 Results - in Battambong'
-    },
-    {
-      'title': 'Catering',
-      'imageUrl':
-          'https://i.pinimg.com/736x/44/d8/3d/44d83dbdbd2fb1e8de4e816755295508.jpg',
-      'results': '145 Results - in Phnom Penh'
-    },
-    {
-      'title': 'Wedding Dresses',
-      'imageUrl':
-          'https://i.pinimg.com/736x/42/02/d9/4202d9a69c2b83b2b99e25ca1d5b97c7.jpg',
-      'results': '110 Results - in Phnom Penh'
-    },
-    {
-      'title': 'Florists',
-      'imageUrl':
-          'https://i.pinimg.com/736x/e6/f6/0d/e6f60d0ff7feaec73ff72bc5674343a0.jpg',
-      'results': '90 Results - in Phnom Penh'
-    },
-    {
-      'title': 'Decorations',
-      'imageUrl':
-          'https://i.pinimg.com/736x/ac/2e/fb/ac2efbb6bfa9b64c227d76e81d9ca0a7.jpg',
-      'results': '85 Results - in Phnom Penh'
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
+          // Header
           Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -107,6 +65,8 @@ class WeddingOffersPage extends StatelessWidget {
               ),
             ),
           ),
+
+          // Dropdown
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Container(
@@ -139,51 +99,168 @@ class WeddingOffersPage extends StatelessWidget {
               ),
             ),
           ),
+
+          // List of Categories
           Expanded(
-            child: ListView.builder(
-              itemCount: categories.length,
-              itemBuilder: (context, index) {
-                final category = categories[index];
-                return Card(
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(8)),
-                        child: Image.network(
-                          category['imageUrl']!,
-                          height: 200,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              category['title']!,
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 4),
-                            Text(
-                              category['results']!,
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
+            child: ListView(
+              children: [
+                CategoryCard(
+                  title: 'Wedding Venues',
+                  imageUrl:
+                      'https://i.pinimg.com/736x/ff/84/33/ff843394cb5bebe70910951349c337f5.jpg',
+                  results: '203 Results - in Phnom Penh',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => VenuesPage()),
+                    );
+                  },
+                ),
+                CategoryCard(
+                  title: 'Wedding Photographer',
+                  imageUrl:
+                      'https://i.pinimg.com/736x/09/83/5d/09835d1281ffbc3d66601fcec8097b7c.jpg',
+                  results: '150 Results - in Siem Reap',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PhotographyPage()),
+                    );
+                  },
+                ),
+                CategoryCard(
+                  title: 'Wedding Band',
+                  imageUrl:
+                      'https://i.pinimg.com/736x/65/54/9a/65549a93b8c0514db60a04937c8c3ed9.jpg',
+                  results: '120 Results - in Phnom Penh',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BandPage()),
+                    );
+                  },
+                ),
+                CategoryCard(
+                  title: 'Bridal Makeup',
+                  imageUrl:
+                      'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
+                  results: '180 Results - in Battambong',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MakeupPage()),
+                    );
+                  },
+                ),
+                CategoryCard(
+                  title: 'Catering',
+                  imageUrl:
+                      'https://i.pinimg.com/736x/44/d8/3d/44d83dbdbd2fb1e8de4e816755295508.jpg',
+                  results: '145 Results - in Phnom Penh',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CateringPage()),
+                    );
+                  },
+                ),
+                CategoryCard(
+                  title: 'Wedding Dresses',
+                  imageUrl:
+                      'https://i.pinimg.com/736x/42/02/d9/4202d9a69c2b83b2b99e25ca1d5b97c7.jpg',
+                  results: '110 Results - in Phnom Penh',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DressesPage()),
+                    );
+                  },
+                ),
+                CategoryCard(
+                  title: 'Florists',
+                  imageUrl:
+                      'https://i.pinimg.com/736x/e6/f6/0d/e6f60d0ff7feaec73ff72bc5674343a0.jpg',
+                  results: '90 Results - in Phnom Penh',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FloristsPage()),
+                    );
+                  },
+                ),
+                CategoryCard(
+                  title: 'Decorations',
+                  imageUrl:
+                      'https://i.pinimg.com/736x/ac/2e/fb/ac2efbb6bfa9b64c227d76e81d9ca0a7.jpg',
+                  results: '85 Results - in Phnom Penh',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DecorationsPage()),
+                    );
+                  },
+                ),
+              ],
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CategoryCard extends StatelessWidget {
+  final String title;
+  final String imageUrl;
+  final String results;
+  final VoidCallback onTap;
+
+  const CategoryCard({
+    required this.title,
+    required this.imageUrl,
+    required this.results,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+              child: Image.network(
+                imageUrl,
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    results,
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
