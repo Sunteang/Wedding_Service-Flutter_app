@@ -17,21 +17,16 @@ class _SettingsScreenState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
-        backgroundColor: Colors.blue,
+        title: const Text(
+          'Settings',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.pink,
       ),
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: [
           // Profile Settings Section
-          const ListTile(
-            title: Text(
-              'Profile Settings',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            leading: Icon(Icons.person, color: Colors.blueAccent),
-          ),
-          const Divider(),
           _buildSettingsTile(
             context,
             Icons.person,
@@ -105,7 +100,7 @@ class _SettingsScreenState extends State<SettingPage> {
           SwitchListTile(
             value: _profileVisibilityEnabled,
             title: const Text('Profile Visibility'),
-            secondary: const Icon(Icons.visibility, color: Colors.blue),
+            secondary: const Icon(Icons.visibility, color: Colors.pink),
             onChanged: (bool value) {
               setState(() {
                 _profileVisibilityEnabled = value;
@@ -120,8 +115,8 @@ class _SettingsScreenState extends State<SettingPage> {
               'About App',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            leading: const Icon(Icons.info, color: Colors.blue),
-            trailing: const Icon(Icons.chevron_right, color: Colors.blue),
+            leading: const Icon(Icons.info, color: Colors.pink),
+            trailing: const Icon(Icons.chevron_right, color: Colors.pink),
             onTap: () {
               // Navigate to About Page
               Navigator.push(
@@ -139,7 +134,7 @@ class _SettingsScreenState extends State<SettingPage> {
       BuildContext context, IconData icon, String title, Function() onTap) {
     return Card(
       child: ListTile(
-        leading: Icon(icon, color: Colors.blue),
+        leading: Icon(icon, color: Colors.pink),
         title: Text(title),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: onTap,
@@ -155,15 +150,45 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About App'),
-        backgroundColor: Colors.green,
+        title: const Text(
+          'About App',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.pink,
       ),
-      body: const Center(
-        child: Text(
-          'This is a simple settings screen example.\n'
-          'Designed using Flutter.',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Profile Section
+              Container(
+                padding: const EdgeInsets.all(20.0),
+                width: double.infinity,
+                color: Colors.pink,
+                child: Column(
+                  children: const [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.white,
+                      backgroundImage: NetworkImage(
+                        'https://i.pinimg.com/736x/ec/24/0b/ec240bd09f5f428b04406d3b6ba7bc05.jpg',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Description Section
+              const Text(
+                'The Wedding Service App was created to simplify the process of finding services (e.g., wedding bands, photography, bridal makeup, wedding venues, wedding dresses, florists, decorations, and all other wedding-related services) that were previously difficult to locate. The app provides comprehensive information about a wide range of wedding-related services currently available in Cambodia. It ensures speed, reliability, and quality to help couples manage their wedding planning effectively. Additionally, it makes it easier for service providers to connect with potential customers.\n\n'
+                'Designed by Teang and The Gangs.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wedding_service_app/pages/sign-up/SignUp.dart';
+import 'package:wedding_service_app/screens/sign-up/SignUpPage.dart';
 
 class Userinformation extends StatelessWidget {
   const Userinformation({super.key});
@@ -61,7 +61,7 @@ class Userinformation extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignUp(),
+                      builder: (context) => SignUpScreen(),
                     ),
                   );
                 },

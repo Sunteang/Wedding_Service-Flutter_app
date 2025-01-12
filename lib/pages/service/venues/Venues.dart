@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:wedding_service_app/pages/details/makeup-detail/MakeupDetail.dart';
+import 'package:wedding_service_app/pages/details/venues-detail/VenuesDetails.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 
-class MakeupPage extends StatelessWidget {
+class VenuesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Makeup'),
+        title: Text('Venue'),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -20,7 +20,7 @@ class MakeupPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // List of makeup artists/services
+          // List of venues
           Expanded(
             child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -30,15 +30,15 @@ class MakeupPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MakeupDetailPage()),
+                          builder: (context) => VenueDetailsPage()),
                     );
                   },
-                  child: MakeupCard(
+                  child: VenueCard(
                     imageUrl:
-                        'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                    title: 'Glow & Glam Makeup Studio',
-                    subtitle: 'Expert Makeup Artists • 1.3km (14 min)',
-                    price: '\$600/session',
+                        'https://i.pinimg.com/736x/ec/d2/76/ecd276cb24fdf65148475e73ff5db27d.jpg',
+                    title: 'PKS Wedding Hall In Phnom Penh',
+                    subtitle: 'Wedding Hall • 1.3km (14 min)',
+                    price: '\$1450/day',
                     rating: 4.8,
                   ),
                 ),
@@ -47,33 +47,68 @@ class MakeupPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MakeupDetailPage()),
+                          builder: (context) => VenueDetailsPage()),
                     );
                   },
-                  child: MakeupCard(
+                  child: VenueCard(
                     imageUrl:
-                        'https://i.pinimg.com/736x/50/23/5e/50235e8e264c72899a9ba1f1e30eacee.jpg',
-                    title: 'Bridal Glow Experts',
-                    subtitle: 'Perfect Bridal Looks • 1km (12 min)',
-                    price: '\$750/session',
-                    rating: 4.7,
+                        'https://i.pinimg.com/736x/ff/84/33/ff843394cb5bebe70910951349c337f5.jpg',
+                    title: 'YWS Wedding Hall In Siem Reap',
+                    subtitle: 'Wedding Hall • 1km (12 min)',
+                    price: '\$800/day',
+                    rating: 4.4,
                   ),
                 ),
-                MakeupCard(
-                  imageUrl:
-                      'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                  title: 'Glamorous Touch Salon',
-                  subtitle: 'Customized Wedding Makeup • 2km (20 min)',
-                  price: '\$850/session',
-                  rating: 4.9,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => VenueDetailsPage()),
+                    );
+                  },
+                  child: VenueCard(
+                    imageUrl:
+                        'https://i.pinimg.com/736x/ac/2e/fb/ac2efbb6bfa9b64c227d76e81d9ca0a7.jpg',
+                    title: 'AC Royal In Phnom Penh',
+                    subtitle: 'Wedding Hall • 750m (10 min)',
+                    price: '\$1000/day',
+                    rating: 4.2,
+                  ),
                 ),
-                MakeupCard(
-                  imageUrl:
-                      'https://i.pinimg.com/736x/50/23/5e/50235e8e264c72899a9ba1f1e30eacee.jpg',
-                  title: 'Bridal Glow Experts',
-                  subtitle: 'Perfect Bridal Looks • 1km (12 min)',
-                  price: '\$450/session',
-                  rating: 4.7,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => VenueDetailsPage()),
+                    );
+                  },
+                  child: VenueCard(
+                    imageUrl:
+                        'https://i.pinimg.com/736x/ff/84/33/ff843394cb5bebe70910951349c337f5.jpg',
+                    title: 'YWS Wedding Hall In Siem Reap',
+                    subtitle: 'Wedding Hall • 1km (12 min)',
+                    price: '\$950/day',
+                    rating: 4.4,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => VenueDetailsPage()),
+                    );
+                  },
+                  child: VenueCard(
+                    imageUrl:
+                        'https://i.pinimg.com/736x/ec/d2/76/ecd276cb24fdf65148475e73ff5db27d.jpg',
+                    title: 'PKS Wedding Hall In Phnom Penh',
+                    subtitle: 'Wedding Hall • 1.3km (14 min)',
+                    price: '\$1250/day',
+                    rating: 4.8,
+                  ),
                 ),
               ],
             ),
@@ -134,14 +169,14 @@ class MakeupPage extends StatelessWidget {
   }
 }
 
-class MakeupCard extends StatelessWidget {
+class VenueCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
   final String price;
   final double rating;
 
-  MakeupCard({
+  VenueCard({
     required this.imageUrl,
     required this.title,
     required this.subtitle,
@@ -157,7 +192,7 @@ class MakeupCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Makeup Image
+          // Venue Image
           ClipRRect(
             borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
             child: Image.network(

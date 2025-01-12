@@ -12,13 +12,7 @@ class WeddingAccountPage extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(20.0),
           width: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFF42A5F5), Color(0xFF1565C0)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
+          color: Colors.pink,
           child: Column(
             children: const [
               CircleAvatar(
@@ -51,7 +45,7 @@ class WeddingAccountPage extends StatelessWidget {
                 context,
                 title: 'Profile',
                 icon: Icons.person,
-                iconColor: Color(0xFF1565C0),
+                iconColor: Colors.pink,
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => ProfilePage()));
@@ -61,7 +55,7 @@ class WeddingAccountPage extends StatelessWidget {
                 context,
                 title: 'Settings',
                 icon: Icons.settings,
-                iconColor: Color(0xFF1565C0),
+                iconColor: Colors.pink,
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => SettingPage()));
@@ -72,7 +66,7 @@ class WeddingAccountPage extends StatelessWidget {
                 context,
                 title: 'Help Center',
                 icon: Icons.help_outline,
-                iconColor: Color(0xFF1565C0),
+                iconColor: Colors.pink,
                 onTap: () {
                   // Add navigation to Privacy Settings here
                 },
@@ -81,15 +75,11 @@ class WeddingAccountPage extends StatelessWidget {
                 context,
                 title: 'Log Out',
                 icon: Icons.logout,
-                iconColor: Color(0xFF1565C0),
+                iconColor: Colors.pink,
                 onTap: () {
                   // Add navigation to Privacy Settings here
                 },
               ),
-              // _buildAccountOption(Icons.person, "Profile"),
-              // _buildAccountOption(Icons.settings, "Settings"),
-              // _buildAccountOption(Icons.help_outline, "Help Center"),
-              // _buildAccountOption(Icons.logout, "Log Out"),
             ],
           ),
         ),
@@ -114,15 +104,4 @@ class WeddingAccountPage extends StatelessWidget {
       ),
     );
   }
-
-  // Widget _buildAccountOption(IconData icon, String title) {
-  //   return Card(
-  //     child: ListTile(
-  //       leading: Icon(icon, color: Color(0xFF1565C0)),
-  //       title: Text(title),
-  //       trailing: const Icon(Icons.arrow_forward_ios),
-  //       onTap: () {},
-  //     ),
-  //   );
-  // }
 }

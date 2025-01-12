@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:wedding_service_app/pages/details/makeup-detail/MakeupDetail.dart';
+import 'package:wedding_service_app/pages/details/photography-detail/PhotographyDetail.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 
-class MakeupPage extends StatelessWidget {
+class PhotographyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Makeup'),
+        title: Text('Photography'),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -20,7 +20,7 @@ class MakeupPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // List of makeup artists/services
+          // List of photography services
           Expanded(
             child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -30,16 +30,16 @@ class MakeupPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MakeupDetailPage()),
+                          builder: (context) => PhotographyDetailPage()),
                     );
                   },
-                  child: MakeupCard(
+                  child: PhotographyCard(
                     imageUrl:
-                        'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                    title: 'Glow & Glam Makeup Studio',
-                    subtitle: 'Expert Makeup Artists • 1.3km (14 min)',
-                    price: '\$600/session',
-                    rating: 4.8,
+                        'https://i.pinimg.com/736x/f6/2f/06/f62f06611e8968eb705135ad49e63ddf.jpg',
+                    title: 'Stellar Shots Photography',
+                    subtitle: 'Capture moments with perfection',
+                    price: '\$500/day',
+                    rating: 4.9,
                   ),
                 ),
                 GestureDetector(
@@ -47,33 +47,41 @@ class MakeupPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MakeupDetailPage()),
+                          builder: (context) => PhotographyDetailPage()),
                     );
                   },
-                  child: MakeupCard(
+                  child: PhotographyCard(
                     imageUrl:
-                        'https://i.pinimg.com/736x/50/23/5e/50235e8e264c72899a9ba1f1e30eacee.jpg',
-                    title: 'Bridal Glow Experts',
-                    subtitle: 'Perfect Bridal Looks • 1km (12 min)',
-                    price: '\$750/session',
-                    rating: 4.7,
+                        'https://i.pinimg.com/736x/d0/e0/47/d0e0471f36e341554ebb2aa1e3a14a43.jpg',
+                    title: 'Candid Memories Photography',
+                    subtitle: 'Expert in candid wedding shots',
+                    price: '\$400/day',
+                    rating: 4.8,
                   ),
                 ),
-                MakeupCard(
+                PhotographyCard(
                   imageUrl:
-                      'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                  title: 'Glamorous Touch Salon',
-                  subtitle: 'Customized Wedding Makeup • 2km (20 min)',
-                  price: '\$850/session',
+                      'https://i.pinimg.com/736x/68/ab/ff/68abffe20f9d59367e56e32360899e75.jpg',
+                  title: 'Golden Hour Studios',
+                  subtitle: 'Perfect shots during golden hour',
+                  price: '\$600/day',
+                  rating: 4.7,
+                ),
+                PhotographyCard(
+                  imageUrl:
+                      'https://i.pinimg.com/736x/c6/26/62/c6266252f8ae151f8de8cab18027fae0.jpg',
+                  title: 'Dream Wedding Photographers',
+                  subtitle: 'Your wedding memories preserved forever',
+                  price: '\$700/day',
                   rating: 4.9,
                 ),
-                MakeupCard(
+                PhotographyCard(
                   imageUrl:
-                      'https://i.pinimg.com/736x/50/23/5e/50235e8e264c72899a9ba1f1e30eacee.jpg',
-                  title: 'Bridal Glow Experts',
-                  subtitle: 'Perfect Bridal Looks • 1km (12 min)',
-                  price: '\$450/session',
-                  rating: 4.7,
+                      'https://i.pinimg.com/736x/68/ab/ff/68abffe20f9d59367e56e32360899e75.jpg',
+                  title: 'Elegance Photography',
+                  subtitle: 'Timeless wedding portraits',
+                  price: '\$550/day',
+                  rating: 4.6,
                 ),
               ],
             ),
@@ -134,14 +142,14 @@ class MakeupPage extends StatelessWidget {
   }
 }
 
-class MakeupCard extends StatelessWidget {
+class PhotographyCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
   final String price;
   final double rating;
 
-  MakeupCard({
+  PhotographyCard({
     required this.imageUrl,
     required this.title,
     required this.subtitle,
@@ -157,7 +165,7 @@ class MakeupCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Makeup Image
+          // Photography Image
           ClipRRect(
             borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
             child: Image.network(

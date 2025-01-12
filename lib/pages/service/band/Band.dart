@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:wedding_service_app/pages/details/makeup-detail/MakeupDetail.dart';
+import 'package:wedding_service_app/pages/details/band-detail/BandDetail.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 
-class MakeupPage extends StatelessWidget {
+class BandPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Makeup'),
+        title: Text('Bands'),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -20,7 +20,7 @@ class MakeupPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // List of makeup artists/services
+          // List of bands
           Expanded(
             child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -29,16 +29,15 @@ class MakeupPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => MakeupDetailPage()),
+                      MaterialPageRoute(builder: (context) => BandDetailPage()),
                     );
                   },
-                  child: MakeupCard(
+                  child: BandCard(
                     imageUrl:
-                        'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                    title: 'Glow & Glam Makeup Studio',
-                    subtitle: 'Expert Makeup Artists • 1.3km (14 min)',
-                    price: '\$600/session',
+                        'https://i.pinimg.com/736x/7a/85/2d/7a852d1743781a343b07f8e583c5dbed.jpg',
+                    title: 'Symphony Wedding Band',
+                    subtitle: 'Live Band • 1.3km (14 min)',
+                    price: '\$700/event',
                     rating: 4.8,
                   ),
                 ),
@@ -46,34 +45,33 @@ class MakeupPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => MakeupDetailPage()),
+                      MaterialPageRoute(builder: (context) => BandDetailPage()),
                     );
                   },
-                  child: MakeupCard(
+                  child: BandCard(
                     imageUrl:
-                        'https://i.pinimg.com/736x/50/23/5e/50235e8e264c72899a9ba1f1e30eacee.jpg',
-                    title: 'Bridal Glow Experts',
-                    subtitle: 'Perfect Bridal Looks • 1km (12 min)',
-                    price: '\$750/session',
-                    rating: 4.7,
+                        'https://i.pinimg.com/736x/5b/e7/35/5be735a3514c4e5524debab9dc9da2d9.jpg',
+                    title: 'Melody Makers',
+                    subtitle: 'Live Band • 1km (12 min)',
+                    price: '\$600/event',
+                    rating: 4.6,
                   ),
                 ),
-                MakeupCard(
+                BandCard(
                   imageUrl:
-                      'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                  title: 'Glamorous Touch Salon',
-                  subtitle: 'Customized Wedding Makeup • 2km (20 min)',
-                  price: '\$850/session',
-                  rating: 4.9,
-                ),
-                MakeupCard(
-                  imageUrl:
-                      'https://i.pinimg.com/736x/50/23/5e/50235e8e264c72899a9ba1f1e30eacee.jpg',
-                  title: 'Bridal Glow Experts',
-                  subtitle: 'Perfect Bridal Looks • 1km (12 min)',
-                  price: '\$450/session',
+                      'https://i.pinimg.com/736x/7a/85/2d/7a852d1743781a343b07f8e583c5dbed.jpg',
+                  title: 'Fusion Beats',
+                  subtitle: 'Live Band • 750m (10 min)',
+                  price: '\$500/event',
                   rating: 4.7,
+                ),
+                BandCard(
+                  imageUrl:
+                      'https://i.pinimg.com/736x/5b/e7/35/5be735a3514c4e5524debab9dc9da2d9.jpg',
+                  title: 'The Harmonizers',
+                  subtitle: 'Live Band • 2km (20 min)',
+                  price: '\$650/event',
+                  rating: 4.9,
                 ),
               ],
             ),
@@ -134,14 +132,14 @@ class MakeupPage extends StatelessWidget {
   }
 }
 
-class MakeupCard extends StatelessWidget {
+class BandCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
   final String price;
   final double rating;
 
-  MakeupCard({
+  BandCard({
     required this.imageUrl,
     required this.title,
     required this.subtitle,
@@ -157,7 +155,7 @@ class MakeupCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Makeup Image
+          // Band Image
           ClipRRect(
             borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
             child: Image.network(

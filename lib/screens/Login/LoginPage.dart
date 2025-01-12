@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
-import 'package:wedding_service_app/pages/sign-up/SignUp.dart';
+import 'package:wedding_service_app/screens/sign-up/SignUpPage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -37,17 +37,6 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        // decoration: const BoxDecoration(
-        //   gradient: LinearGradient(
-        //     begin: Alignment.topLeft,
-        //     end: Alignment.bottomRight,
-        //     colors: [
-        //       Color(0xFF833AB4), // Purple
-        //       Color(0xFFFF5E7E), // Pink
-        //       Color(0xFF42A5F5), // Blue
-        //     ],
-        //   ),
-        // ),
         color: Color(0xFF42A5F5),
         child: Center(
           child: SingleChildScrollView(
@@ -178,7 +167,7 @@ class LoginPage extends StatelessWidget {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const SignUp()));
+                                  builder: (context) => SignUpScreen()));
                         },
                         child: const Text(
                           'SIGN UP',

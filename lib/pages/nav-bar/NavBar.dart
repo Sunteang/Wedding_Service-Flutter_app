@@ -15,7 +15,7 @@ class _NavBarState extends State<NavBar> {
   // List of widgets to display for each tab
   final List<Widget> _pages = [
     HomeScreen(),
-    WeddingBookingsPage(),
+    BookingsPage(),
     WeddingOffersPage(),
     WeddingAccountPage(),
   ];
@@ -46,8 +46,7 @@ class _NavBarState extends State<NavBar> {
           backgroundColor: Colors
               .transparent, // Make it transparent so Container color shows
           currentIndex: _selectedIndex,
-          selectedItemColor:
-              const Color(0xFF42A5F5), // Color for the selected item
+          selectedItemColor: Colors.pink, // Color for the selected item
           unselectedItemColor: Colors.grey, // Color for unselected items
           type: BottomNavigationBarType.fixed, // Ensure fixed layout
           elevation: 0, // Remove any elevation shadow

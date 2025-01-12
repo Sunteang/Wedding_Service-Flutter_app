@@ -18,7 +18,7 @@ class ProfilePage extends StatelessWidget {
               color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.pink,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -41,7 +41,7 @@ class ProfilePage extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: Colors.pink,
                     ),
                   ),
                   const SizedBox(height: 5),
@@ -64,7 +64,7 @@ class ProfilePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: Colors.blueAccent,
+                color: Colors.black,
               ),
             ),
             const SizedBox(height: 20),
@@ -92,7 +92,7 @@ class ProfilePage extends StatelessWidget {
             color: Colors.blue[50],
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, color: Colors.blueAccent, size: 24),
+          child: Icon(icon, color: Colors.pink, size: 24),
         ),
         const SizedBox(width: 15),
         Column(

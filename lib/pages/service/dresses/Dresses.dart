@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:wedding_service_app/pages/details/makeup-detail/MakeupDetail.dart';
+import 'package:wedding_service_app/pages/details/dresses-detail/DressesDetail.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 
-class MakeupPage extends StatelessWidget {
+class DressesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Makeup'),
+        title: Text('Dresses'),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -20,7 +20,7 @@ class MakeupPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // List of makeup artists/services
+          // List of dresses
           Expanded(
             child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -30,16 +30,17 @@ class MakeupPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MakeupDetailPage()),
+                          builder: (context) => DressesDetailPage()),
                     );
                   },
-                  child: MakeupCard(
+                  child: DressCard(
                     imageUrl:
-                        'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                    title: 'Glow & Glam Makeup Studio',
-                    subtitle: 'Expert Makeup Artists • 1.3km (14 min)',
-                    price: '\$600/session',
-                    rating: 4.8,
+                        'https://i.pinimg.com/736x/30/1b/08/301b088ac97188823d0cc4a61852fb1d.jpg',
+                    title: 'Elegant White Bridal Dress',
+                    subtitle:
+                        'Perfect for traditional weddings • 1.5km (15 min)',
+                    price: '\$1200',
+                    rating: 4.9,
                   ),
                 ),
                 GestureDetector(
@@ -47,33 +48,33 @@ class MakeupPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MakeupDetailPage()),
+                          builder: (context) => DressesDetailPage()),
                     );
                   },
-                  child: MakeupCard(
+                  child: DressCard(
                     imageUrl:
-                        'https://i.pinimg.com/736x/50/23/5e/50235e8e264c72899a9ba1f1e30eacee.jpg',
-                    title: 'Bridal Glow Experts',
-                    subtitle: 'Perfect Bridal Looks • 1km (12 min)',
-                    price: '\$750/session',
-                    rating: 4.7,
+                        'https://i.pinimg.com/736x/b9/c1/43/b9c143e0c68583eba12dc20c1c2ea80f.jpg',
+                    title: 'Designer Gown with Floral Embroidery',
+                    subtitle: 'Luxurious bridal gown • 2km (20 min)',
+                    price: '\$1500',
+                    rating: 4.8,
                   ),
                 ),
-                MakeupCard(
+                DressCard(
                   imageUrl:
-                      'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                  title: 'Glamorous Touch Salon',
-                  subtitle: 'Customized Wedding Makeup • 2km (20 min)',
-                  price: '\$850/session',
-                  rating: 4.9,
-                ),
-                MakeupCard(
-                  imageUrl:
-                      'https://i.pinimg.com/736x/50/23/5e/50235e8e264c72899a9ba1f1e30eacee.jpg',
-                  title: 'Bridal Glow Experts',
-                  subtitle: 'Perfect Bridal Looks • 1km (12 min)',
-                  price: '\$450/session',
+                      'https://i.pinimg.com/736x/5e/8d/9c/5e8d9c343f1094911e6945cb569bedaa.jpg',
+                  title: 'Minimalist Satin Bridal Dress',
+                  subtitle: 'Simple & modern style • 3km (25 min)',
+                  price: '\$900',
                   rating: 4.7,
+                ),
+                DressCard(
+                  imageUrl:
+                      'https://i.pinimg.com/736x/30/1b/08/301b088ac97188823d0cc4a61852fb1d.jpg',
+                  title: 'Elegant White Bridal Dress',
+                  subtitle: 'Perfect for traditional weddings • 1.5km (15 min)',
+                  price: '\$1200',
+                  rating: 4.9,
                 ),
               ],
             ),
@@ -134,14 +135,14 @@ class MakeupPage extends StatelessWidget {
   }
 }
 
-class MakeupCard extends StatelessWidget {
+class DressCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
   final String price;
   final double rating;
 
-  MakeupCard({
+  DressCard({
     required this.imageUrl,
     required this.title,
     required this.subtitle,
@@ -157,7 +158,7 @@ class MakeupCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Makeup Image
+          // Dress Image
           ClipRRect(
             borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
             child: Image.network(
