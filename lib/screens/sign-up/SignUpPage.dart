@@ -172,8 +172,8 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 import 'package:wedding_service_app/screens/sign-in/SignInPage.dart';
-import 'package:wedding_service_app/screens/validate-otp-page/ValidateOTP.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
@@ -292,10 +292,8 @@ class SignUpScreen extends StatelessWidget {
                   // Sign Up button
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ValidateOtpScreen()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => NavBar()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,

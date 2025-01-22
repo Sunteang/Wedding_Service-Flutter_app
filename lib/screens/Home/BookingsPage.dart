@@ -12,10 +12,7 @@ class BookingsPage extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.message, color: Colors.black),
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MessagesPage()));
-          },
+          onPressed: () {},
         ),
         actions: [
           Padding(

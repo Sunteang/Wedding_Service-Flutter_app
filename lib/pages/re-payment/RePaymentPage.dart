@@ -93,28 +93,28 @@ class RePaymentPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      // Navigate to Messages Page
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MessagesPage()));
-                    },
-                    icon: Icon(Icons.message, color: Colors.white),
-                    label: Text(
-                      'Messages',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                    ),
-                  ),
+                  // ElevatedButton.icon(
+                  //   onPressed: () {
+                  //     // Navigate to Messages Page
+                  //     Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(
+                  //             builder: (context) => MessagesPage()));
+                  //   },
+                  //   icon: Icon(Icons.message, color: Colors.white),
+                  //   label: Text(
+                  //     'Messages',
+                  //     style: TextStyle(color: Colors.white),
+                  //   ),
+                  //   style: ElevatedButton.styleFrom(
+                  //     backgroundColor: Colors.blue,
+                  //     shape: RoundedRectangleBorder(
+                  //       borderRadius: BorderRadius.circular(10),
+                  //     ),
+                  //     padding:
+                  //         EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  //   ),
+                  // ),
                   ElevatedButton.icon(
                     onPressed: () {
                       // Apply coupon action

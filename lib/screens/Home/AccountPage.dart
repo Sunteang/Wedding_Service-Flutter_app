@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_service_app/pages/profile/ProfilePage.dart';
 import 'package:wedding_service_app/pages/setting/SettingPage.dart';
+import 'package:wedding_service_app/screens/wedding-first-page/WelcomePage.dart';
 
 class WeddingAccountPage extends StatelessWidget {
   @override
@@ -77,7 +78,8 @@ class WeddingAccountPage extends StatelessWidget {
                 icon: Icons.logout,
                 iconColor: Colors.pink,
                 onTap: () {
-                  // Add navigation to Privacy Settings here
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WelcomePage()));
                 },
               ),
             ],
