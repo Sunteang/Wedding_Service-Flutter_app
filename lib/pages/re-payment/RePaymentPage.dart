@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_service_app/pages/choose-payment/ChoosePayment.dart';
 import 'package:wedding_service_app/pages/messages/MessagesPage.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 
@@ -93,28 +94,28 @@ class RePaymentPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // ElevatedButton.icon(
-                  //   onPressed: () {
-                  //     // Navigate to Messages Page
-                  //     Navigator.push(
-                  //         context,
-                  //         MaterialPageRoute(
-                  //             builder: (context) => MessagesPage()));
-                  //   },
-                  //   icon: Icon(Icons.message, color: Colors.white),
-                  //   label: Text(
-                  //     'Messages',
-                  //     style: TextStyle(color: Colors.white),
-                  //   ),
-                  //   style: ElevatedButton.styleFrom(
-                  //     backgroundColor: Colors.blue,
-                  //     shape: RoundedRectangleBorder(
-                  //       borderRadius: BorderRadius.circular(10),
-                  //     ),
-                  //     padding:
-                  //         EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  //   ),
-                  // ),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      // Navigate to Messages Page
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MessagesPage()));
+                    },
+                    icon: Icon(Icons.message, color: Colors.white),
+                    label: Text(
+                      'Messages',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    ),
+                  ),
                   ElevatedButton.icon(
                     onPressed: () {
                       // Apply coupon action
@@ -149,8 +150,10 @@ class RePaymentPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       // Add navigation or payment logic here
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => NavBar()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChoosePaymentPage()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:wedding_service_app/pages/choose-payment/ChoosePayment.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 
-class BookingPaymentPage extends StatelessWidget {
+class ChoosePaymentPage extends StatefulWidget {
+  @override
+  _ChoosePaymentPageState createState() => _ChoosePaymentPageState();
+}
+
+class _ChoosePaymentPageState extends State<ChoosePaymentPage> {
+  String? _selectedBank;
+
   @override
   Widget build(BuildContext context) {
     // Static Data
-    final String serviceName = 'Royal Gardens Service Provider';
-    final String location = 'K Mall, Veng Sreng Blvd, Phnom Penh';
     final double hallFee = 1000.0;
     final double tax = 600.0;
     final double total = hallFee + tax;
@@ -64,56 +68,65 @@ class BookingPaymentPage extends StatelessWidget {
 
               // Event Location Section
               Text(
-                'Event Location',
+                'Event Name',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 8),
               Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey[300]!),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  serviceName + '\n' + location,
-                  style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-                ),
-              ),
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey[300]!),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter Event Name',
+                      border: InputBorder.none,
+                    ),
+                  )),
               SizedBox(height: 20),
 
-              // Apply Coupon Button
-              ElevatedButton.icon(
-                onPressed: () {
-                  // Apply coupon action
-                },
-                icon: Icon(Icons.local_offer, color: Colors.pink),
-                label: Text(
-                  'Apply Coupon',
-                  style: TextStyle(color: Colors.pink),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink[50],
-                  elevation: 0,
-                  side: BorderSide(color: Colors.pink),
-                ),
-              ),
-              SizedBox(height: 20),
-
-              // Rent Details Section
+              // Select Payment Section
               Text(
-                'Rent Details',
+                'Select Payment',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 8),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildDetailRow('Hall Fee', hallFee),
-                  _buildDetailRow('Tax', tax),
-                  Divider(),
-                  _buildDetailRow('Total', total, isBold: true),
+                  RadioListTile<String>(
+                    title: Text('ABA Bank'),
+                    value: 'ABA',
+                    groupValue: _selectedBank,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedBank = value;
+                      });
+                    },
+                  ),
+                  RadioListTile<String>(
+                    title: Text('AC Bank'),
+                    value: 'AC',
+                    groupValue: _selectedBank,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedBank = value;
+                      });
+                    },
+                  ),
+                  RadioListTile<String>(
+                    title: Text('Wing Bank'),
+                    value: 'Wing',
+                    groupValue: _selectedBank,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedBank = value;
+                      });
+                    },
+                  ),
                 ],
               ),
+              Divider(),
               SizedBox(height: 20),
 
               // Price and Pay Now Button
@@ -130,10 +143,8 @@ class BookingPaymentPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChoosePaymentPage()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => NavBar()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,
@@ -144,7 +155,7 @@ class BookingPaymentPage extends StatelessWidget {
                           EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     ),
                     child: Text(
-                      'Next',
+                      'Pay Now',
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
