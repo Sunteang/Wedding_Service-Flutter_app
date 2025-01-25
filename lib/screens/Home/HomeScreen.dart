@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wedding_service_app/data/api/category_api.dart';
 import 'package:wedding_service_app/pages/service/catering/Catering.dart';
 import 'package:wedding_service_app/pages/service/decoration/Decoration.dart';
 import 'package:wedding_service_app/pages/service/florist/Florist.dart';
@@ -16,8 +17,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final AuthAPI _authAPI = AuthAPI();
+  final CategoryAPI _categoryAPI = CategoryAPI();
+
   // Placeholder for user data
   Map<String, dynamic>? user;
+  List<Map<String, dynamic>> categories = [];
 
   // Loading state
   bool isLoading = true;
@@ -26,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     fetchUserData();
+    fetchCategories();
   }
 
   // Fetch user data from secure storage
@@ -39,6 +44,21 @@ class _HomeScreenState extends State<HomeScreen> {
     } catch (e) {
       // Handle error (e.g., show a snackbar or log the error)
       print('Error fetching user data: $e');
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  Future<void> fetchCategories() async {
+    try {
+      final fetchedCategories = await _categoryAPI.fetchCategories();
+      setState(() {
+        categories = fetchedCategories;
+        isLoading = false;
+      });
+    } catch (e) {
+      print('Error fetching categories: $e');
       setState(() {
         isLoading = false;
       });
