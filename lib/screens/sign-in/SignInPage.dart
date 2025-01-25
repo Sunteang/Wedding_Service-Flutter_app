@@ -1,8 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:wedding_service_app/data/api/auth_api.dart';
 import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 import 'package:wedding_service_app/screens/sign-up/SignUpPage.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
+  @override
+  _SignInScreenState createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final AuthAPI _authAPI = AuthAPI();
+  final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
+
+  bool isLoading = false;
+
+  Future<void> handleSignIn() async {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+
+  // Log email and password to the browser console
+  print('Email: $email');
+  print('Password: $password');
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Please enter valid credentials")),
+      );
+      return;
+    }
+
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      // Use AuthAPI to login and get the token
+      final token = await _authAPI.login(email, password);
+
+      print('Token: $token');
+
+      // Store the token securely
+      await _secureStorage.write(key: 'auth_token', value: token);
+
+      // Navigate to the main screen (NavBar)
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => NavBar()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Login failed: $e")),
+      );
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +75,7 @@ class SignInScreen extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Skip',
                     style: TextStyle(
                       color: Colors.pink,
@@ -31,7 +89,7 @@ class SignInScreen extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
                           'https://i.pinimg.com/736x/ec/24/0b/ec240bd09f5f428b04406d3b6ba7bc05.jpg',
@@ -40,8 +98,8 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     'Sign In',
                     style: TextStyle(
                       fontSize: 24,
@@ -49,66 +107,67 @@ class SignInScreen extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
-                  // Phone number field
+                  // Email field
                   TextField(
-                    keyboardType: TextInputType.phone,
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      labelText: 'Phone Number',
-                      labelStyle: TextStyle(color: Colors.pink),
+                      labelText: 'Email',
+                      labelStyle: const TextStyle(color: Colors.pink),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.pink),
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
-                  //Password
+                  // Password field
                   TextField(
-                    keyboardType: TextInputType.phone,
+                    controller: passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      labelStyle: TextStyle(color: Colors.pink),
+                      labelStyle: const TextStyle(color: Colors.pink),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.pink),
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
                   // Sign In button
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => NavBar()));
-                    },
+                    onPressed: isLoading ? null : handleSignIn,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 100),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 16, horizontal: 100),
                     ),
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(fontSize: 16, color: Colors.white),
-                    ),
+                    child: isLoading
+                        ? CircularProgressIndicator(color: Colors.white)
+                        : const Text(
+                            'Sign In',
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
                   ),
 
-                  SizedBox(height: 24),
-                  Text(
+                  const SizedBox(height: 24),
+                  const Text(
                     'Or',
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
                   // Social buttons
                   Row(
@@ -119,16 +178,16 @@ class SignInScreen extends StatelessWidget {
                         icon: const Icon(Icons.facebook),
                         iconSize: 40,
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.tiktok),
                         iconSize: 40,
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(Icons.mail),
+                        icon: const Icon(Icons.mail),
                         iconSize: 40,
                       ),
                     ],
@@ -140,7 +199,7 @@ class SignInScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Don't have an account?",
                     style: TextStyle(color: Colors.black, fontSize: 14),
                   ),
@@ -151,7 +210,7 @@ class SignInScreen extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => SignUpScreen()));
                     },
-                    child: Text(
+                    child: const Text(
                       'Sign Up',
                       style: TextStyle(color: Colors.pink, fontSize: 14),
                     ),
