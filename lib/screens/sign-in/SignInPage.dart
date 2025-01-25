@@ -17,13 +17,9 @@ class _SignInScreenState extends State<SignInScreen> {
 
   bool isLoading = false;
 
-  Future<void> handleSignIn() async {
+  void handleSignIn() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
-
-  // Log email and password to the browser console
-  print('Email: $email');
-  print('Password: $password');
 
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -37,22 +33,23 @@ class _SignInScreenState extends State<SignInScreen> {
     });
 
     try {
-      // Use AuthAPI to login and get the token
+      // Log in and get the token
       final token = await _authAPI.login(email, password);
 
-      print('Token: $token');
-
-      // Store the token securely
+      // Save the token securely
       await _secureStorage.write(key: 'auth_token', value: token);
 
-      // Navigate to the main screen (NavBar)
+      // Fetch and store the user data
+      await _authAPI.getUser(token);
+
+      // Navigate to the main screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => NavBar()),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Login failed: $e")),
+        SnackBar(content: Text(e.toString())),
       );
     } finally {
       setState(() {

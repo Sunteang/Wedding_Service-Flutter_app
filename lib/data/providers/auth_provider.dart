@@ -17,7 +17,8 @@ class AuthNotifier extends StateNotifier<AsyncValue<String>> {
       final token = await _authAPI.login(email, password);
       state = AsyncValue.data(token);
     } catch (e) {
-      state = AsyncValue.error(e);
+      print(e);
+      // state = AsyncValue.error(e);
     }
   }
 }
