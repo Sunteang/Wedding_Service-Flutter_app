@@ -9,7 +9,7 @@ class CategoryAPI {
 
   Future<List<Map<String, dynamic>>> fetchCategories() async {
     final url = Uri.parse('$baseUrl/category');
-    final token = await _secureStorage.read(key: 'user_data');
+    final token = await _secureStorage.read(key: 'auth_token');
 
     try {
       final response = await http.get(

@@ -53,10 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> fetchCategories() async {
     try {
       final fetchedCategories = await _categoryAPI.fetchCategories();
+
       setState(() {
         categories = fetchedCategories;
         isLoading = false;
       });
+
+      print("Categories: $categories");
     } catch (e) {
       print('Error fetching categories: $e');
       setState(() {
@@ -193,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const SizedBox(height: 10),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          padding: const EdgeInsets.all(16.0),
                           child: GridView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -204,64 +207,26 @@ class _HomeScreenState extends State<HomeScreen> {
                               crossAxisSpacing: 10,
                               mainAxisSpacing: 10,
                             ),
-                            itemCount: 8,
+                            itemCount: categories.length,
                             itemBuilder: (context, index) {
-                              // Categories and their images
-                              List<String> categories = [
-                                'Venue',
-                                'Photography',
-                                'Bands',
-                                'Dresses',
-                                'Catering',
-                                'Makeup',
-                                'Decorations',
-                                'More'
-                              ];
-
-                              List<String> categoryImages = [
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqnJev5MkN71WTUMqdAB_iCK_x9haQdjiitg&s',
-                                'https://i.pinimg.com/736x/09/83/5d/09835d1281ffbc3d66601fcec8097b7c.jpg',
-                                'https://i.pinimg.com/736x/65/54/9a/65549a93b8c0514db60a04937c8c3ed9.jpg',
-                                'https://i.pinimg.com/736x/36/92/22/369222e436dbcaf0793fb94cd23251dd.jpg',
-                                'https://i.pinimg.com/736x/44/d8/3d/44d83dbdbd2fb1e8de4e816755295508.jpg',
-                                'https://i.pinimg.com/736x/42/02/d9/4202d9a69c2b83b2b99e25ca1d5b97c7.jpg',
-                                'https://i.pinimg.com/736x/ac/2e/fb/ac2efbb6bfa9b64c227d76e81d9ca0a7.jpg',
-                                'https://i.pinimg.com/736x/e6/f6/0d/e6f60d0ff7feaec73ff72bc5674343a0.jpg',
-                              ];
-
-                              // Pages for each category
-                              List<Widget> pages = [
-                                VenuesPage(),
-                                PhotographyPage(),
-                                BandPage(),
-                                DressesPage(),
-                                CateringPage(),
-                                MakeupPage(),
-                                DecorationsPage(),
-                                FloristsPage(),
-                              ];
+                              final category = categories[index];
 
                               return GestureDetector(
                                 onTap: () {
-                                  // Navigate to the corresponding page when tapped
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          pages[index], // Navigate to the page
-                                    ),
-                                  );
+                                  // Placeholder for navigation, replace with actual pages
+                                  print(
+                                      'Navigate to category: ${category['name']}');
                                 },
                                 child: Column(
                                   children: [
                                     CircleAvatar(
                                       backgroundImage:
-                                          NetworkImage(categoryImages[index]),
+                                          NetworkImage(category['image']),
                                       radius: 30,
                                     ),
                                     const SizedBox(height: 5),
                                     Text(
-                                      categories[index],
+                                      category['name'],
                                       style: const TextStyle(fontSize: 12),
                                       textAlign: TextAlign.center,
                                     ),
@@ -274,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                         const SizedBox(height: 20),
                         const Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          padding: EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text(
                             'Popular Offers',
                             style: TextStyle(
