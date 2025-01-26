@@ -3,15 +3,15 @@ import 'package:http/http.dart' as http;
 import 'package:wedding_service_app/data/providers/base.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class CategoryAPI {
+class EventApi {
   final String baseUrl = BaseProvider.baseUrl;
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
 
-  // Fetch categories
-  Future<Map<String, dynamic>> fetchCategories(
+  // Fetch Events
+  Future<Map<String, dynamic>> fetchEvents(
       {Map<String, String>? queryParams}) async {
     final uri =
-        Uri.parse('$baseUrl/category').replace(queryParameters: queryParams);
+        Uri.parse('$baseUrl/event').replace(queryParameters: queryParams);
     final token = await _secureStorage.read(key: 'auth_token');
 
     try {
