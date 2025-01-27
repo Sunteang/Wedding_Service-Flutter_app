@@ -10,18 +10,18 @@ The Wedding Service App was created to simplify the process of finding services 
 
 ### Needs/Problems
 
-Challenges for Couples: Difficulty in selecting services and dealing with complexities, such as choosing a wedding venue, finding makeup artists, or hiring photographers, often without clear pricing or quality assurance.
-Time-Consuming: Significant time spent organizing wedding events.
-Budget Uncertainty: Lack of clarity on the budget needed for specific services.
-Lack of Information: Limited access to reliable service information.
-Service Quality: Concerns about receiving subpar services.
+- Challenges for Couples: Difficulty in selecting services and dealing with complexities, such as choosing a wedding venue, finding makeup artists, or hiring photographers, often without clear pricing or quality assurance.
+- Time-Consuming: Significant time spent organizing wedding events.
+- Budget Uncertainty: Lack of clarity on the budget needed for specific services.
+- Lack of Information: Limited access to reliable service information.
+- Service Quality: Concerns about receiving subpar services.
 
 ### Goals/Objectives
 
-Convenience: Make it easier to find wedding-related services.
-Budget Estimation: Allow users to estimate costs in advance.
-Quick Access: Ensure services are delivered quickly.
-Trust and Recognition: Build trust between customers and service providers while ensuring quality.
+- Convenience: Make it easier to find wedding-related services.
+- Budget Estimation: Allow users to estimate costs in advance.
+- Quick Access: Ensure services are delivered quickly.
+- Trust and Recognition: Build trust between customers and service providers while ensuring quality.
 
 ##Build with
 
