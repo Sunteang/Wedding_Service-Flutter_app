@@ -16,7 +16,7 @@ class ValidateOtpScreen extends StatelessWidget {
                 alignment: Alignment.topRight,
                 child: TextButton(
                   onPressed: () {},
-                  child: Text(
+                  child: const Text(
                     'Skip',
                     style: TextStyle(
                       color: Colors.pink,
@@ -30,7 +30,7 @@ class ValidateOtpScreen extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
                           'https://i.pinimg.com/736x/ec/24/0b/ec240bd09f5f428b04406d3b6ba7bc05.jpg',
@@ -39,8 +39,8 @@ class ValidateOtpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     'Validate OTP',
                     style: TextStyle(
                       fontSize: 24,
@@ -48,7 +48,7 @@ class ValidateOtpScreen extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
                   // OTP field
                   Row(
@@ -62,7 +62,7 @@ class ValidateOtpScreen extends StatelessWidget {
                           border: Border.all(color: Colors.pink, width: 2),
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: TextField(
+                        child: const TextField(
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
                           maxLength: 1,
@@ -79,40 +79,38 @@ class ValidateOtpScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
                   // Verify OTP button
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => NavBar()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => NavBar()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 16, horizontal: 100),
+                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 100),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Verify OTP',
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
 
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     'Resend Otp by 30s',
                     style: TextStyle(color: Colors.grey, fontSize: 14),
                   ),
 
-                  SizedBox(height: 24),
-                  Text(
+                  const SizedBox(height: 24),
+                  const Text(
                     'Or',
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
                   // Social buttons
                   Row(
@@ -123,40 +121,17 @@ class ValidateOtpScreen extends StatelessWidget {
                         icon: const Icon(Icons.facebook),
                         iconSize: 40,
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.tiktok),
                         iconSize: 40,
                       ),
-                      SizedBox(width: 16),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.mail),
-                        iconSize: 40,
-                      ),
+                      const SizedBox(width: 16),
                     ],
                   ),
                 ],
               ),
-
-              // Sign up prompt
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     Text(
-              //       "Don't have an account?",
-              //       style: TextStyle(color: Colors.black, fontSize: 14),
-              //     ),
-              //     TextButton(
-              //       onPressed: () {},
-              //       child: Text(
-              //         'Sign Up',
-              //         style: TextStyle(color: Colors.pink, fontSize: 14),
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ],
           ),
         ),

@@ -24,7 +24,7 @@ class RePaymentPage extends StatelessWidget {
           },
         ),
         title: Text(
-          'Re-Payment',
+          'Re-',
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -60,35 +60,35 @@ class RePaymentPage extends StatelessWidget {
                 onPressed: () {
                   // Apply coupon action
                 },
-                icon: Icon(Icons.local_offer, color: Colors.pink),
-                label: Text(
+                icon: const Icon(Icons.local_offer, color: Colors.pink),
+                label: const Text(
                   'Apply Coupon',
                   style: TextStyle(color: Colors.pink),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink[50],
                   elevation: 0,
-                  side: BorderSide(color: Colors.pink),
+                  side: const BorderSide(color: Colors.pink),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Payment Breakdown Section
-              Text(
+              const Text(
                 'Payment Breakdown',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildDetailRow('Pending Amount', pendingAmount),
                   _buildDetailRow('Tax', tax),
-                  Divider(),
+                  const Divider(),
                   _buildDetailRow('Total Due', total, isBold: true),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Messages and Pending Buttons
               Row(
@@ -97,13 +97,10 @@ class RePaymentPage extends StatelessWidget {
                   ElevatedButton.icon(
                     onPressed: () {
                       // Navigate to Messages Page
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MessagesPage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MessagesPage()));
                     },
-                    icon: Icon(Icons.message, color: Colors.white),
-                    label: Text(
+                    icon: const Icon(Icons.message, color: Colors.white),
+                    label: const Text(
                       'Messages',
                       style: TextStyle(color: Colors.white),
                     ),
@@ -112,8 +109,7 @@ class RePaymentPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     ),
                   ),
                   ElevatedButton.icon(
@@ -133,7 +129,7 @@ class RePaymentPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // Price and Action Buttons
               Row(
@@ -141,7 +137,7 @@ class RePaymentPage extends StatelessWidget {
                 children: [
                   Text(
                     'Total: \$${total.toStringAsFixed(2)}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.red,
@@ -150,21 +146,17 @@ class RePaymentPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       // Add navigation or payment logic here
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChoosePaymentPage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ChoosePaymentPage()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.pink,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     ),
-                    child: Text(
-                      'Re-Payment',
+                    child: const Text(
+                      'Payment',
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),

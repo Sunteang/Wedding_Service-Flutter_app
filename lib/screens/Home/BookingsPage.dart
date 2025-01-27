@@ -7,19 +7,18 @@ class BookingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Booking History'),
+        title: const Text('Booking History'),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.message, color: Colors.black),
+          icon: const Icon(Icons.message, color: Colors.black),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MessagesPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MessagesPage()));
           },
         ),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.only(right: 16.0),
             child: Icon(Icons.filter_alt, color: Colors.black),
           ),
         ],
@@ -36,25 +35,25 @@ class BookingsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     FilterChip(
-                      label: Text('All'),
+                      label: const Text('All'),
                       selected: true,
                       onSelected: (bool value) {},
                       backgroundColor: Colors.grey[200],
                       selectedColor: Colors.pink[100],
-                      labelStyle: TextStyle(color: Colors.pink),
+                      labelStyle: const TextStyle(color: Colors.pink),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     FilterChip(
-                      label: Text('Upcoming'),
+                      label: const Text('Upcoming'),
                       selected: false,
                       onSelected: (bool value) {},
                       backgroundColor: Colors.grey[200],
                       selectedColor: Colors.pink[100],
                       labelStyle: TextStyle(color: Colors.pink),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     FilterChip(
@@ -65,16 +64,16 @@ class BookingsPage extends StatelessWidget {
                       selectedColor: Colors.pink[100],
                       labelStyle: TextStyle(color: Colors.pink),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     FilterChip(
-                      label: Text('Canceled'),
+                      label: const Text('Canceled'),
                       selected: false,
                       onSelected: (bool value) {},
                       backgroundColor: Colors.grey[200],
                       selectedColor: Colors.pink[100],
-                      labelStyle: TextStyle(color: Colors.pink),
+                      labelStyle: const TextStyle(color: Colors.pink),
                     ),
                   ],
                 ),
@@ -84,7 +83,7 @@ class BookingsPage extends StatelessWidget {
             // Booking cards
             Expanded(
               child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
                     UnpaidBookingCard(
@@ -171,33 +170,33 @@ class PaidBookingCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.network(
-                    'https://i.pinimg.com/736x/42/02/d9/4202d9a69c2b83b2b99e25ca1d5b97c7.jpg',
+                    'https://via.placeholder.com/150',
                     height: 80,
                     width: 80,
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         description,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           color: Colors.grey,
                         ),
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         price,
                         style: TextStyle(
@@ -375,11 +374,10 @@ class UnpaidBookingCard extends StatelessWidget {
               alignment: Alignment.center,
               child: ElevatedButton.icon(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => RePaymentPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => RePaymentPage()));
                 },
                 icon: Icon(Icons.refresh, size: 16),
-                label: Text('Re-Payment'),
+                label: Text('Payment'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red.withOpacity(0.1),
                   foregroundColor: Colors.red,
