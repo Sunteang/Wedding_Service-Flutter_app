@@ -182,11 +182,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         iconSize: 40,
                       ),
                       const SizedBox(width: 16),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.mail),
-                        iconSize: 40,
-                      ),
+        
                     ],
                   ),
                 ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wedding_service_app/screens/sign-in/SignInPage.dart';
 import 'package:wedding_service_app/screens/sign-up/SignUpPage.dart';
 
@@ -150,22 +151,31 @@ class EventAppScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () async {
+                              const url = 'https://www.facebook.com/';
+                              if (await canLaunch(url)) {
+                                await launch(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },
                             icon: const Icon(Icons.facebook),
                             iconSize: 40,
                           ),
                           const SizedBox(width: 16),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () async {
+                              const url = 'https://www.tiktok.com/explore';
+                              if (await canLaunch(url)) {
+                                await launch(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },
                             icon: const Icon(Icons.tiktok),
                             iconSize: 40,
                           ),
                           const SizedBox(width: 16),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.mail),
-                            iconSize: 40,
-                          ),
                         ],
                       ),
                     ],
