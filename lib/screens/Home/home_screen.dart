@@ -3,7 +3,6 @@ import 'package:wedding_service_app/data/api/category_api.dart';
 import 'package:wedding_service_app/data/api/auth_api.dart';
 import 'package:wedding_service_app/data/api/event_api.dart';
 import 'package:wedding_service_app/pages/category-list/List.dart';
-import 'package:wedding_service_app/pages/service/venues/Venues.dart';
 import 'package:wedding_service_app/utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
