@@ -75,7 +75,7 @@ class CategoryListState extends State<CategoryList> {
                     );
                   },
                   child: const ListCard(
-                    imageUrl: 'https://i.pinimg.com/736x/ec/d2/76/ecd276cb24fdf65148475e73ff5db27d.jpg',
+                    imageUrl: 'https://t3.ftcdn.net/jpg/01/03/32/70/360_F_103327027_Q1xyMUkuBa70u40rViraUHTkDLQS2irJ.jpg',
                     title: 'PKS Wedding Hall In Phnom Penh',
                     subtitle: 'Wedding Hall • 1.3km (14 min)',
                     price: '\$1450/day',
@@ -90,7 +90,7 @@ class CategoryListState extends State<CategoryList> {
                     );
                   },
                   child: const ListCard(
-                    imageUrl: 'https://i.pinimg.com/736x/ff/84/33/ff843394cb5bebe70910951349c337f5.jpg',
+                    imageUrl: 'https://t3.ftcdn.net/jpg/01/03/32/70/360_F_103327027_Q1xyMUkuBa70u40rViraUHTkDLQS2irJ.jpg',
                     title: 'YWS Wedding Hall In Siem Reap',
                     subtitle: 'Wedding Hall • 1km (12 min)',
                     price: '\$800/day',
@@ -105,7 +105,7 @@ class CategoryListState extends State<CategoryList> {
                     );
                   },
                   child: const ListCard(
-                    imageUrl: 'https://i.pinimg.com/736x/ac/2e/fb/ac2efbb6bfa9b64c227d76e81d9ca0a7.jpg',
+                    imageUrl: 'https://t3.ftcdn.net/jpg/01/03/32/70/360_F_103327027_Q1xyMUkuBa70u40rViraUHTkDLQS2irJ.jpg',
                     title: 'AC Royal In Phnom Penh',
                     subtitle: 'Wedding Hall • 750m (10 min)',
                     price: '\$1000/day',
@@ -120,7 +120,7 @@ class CategoryListState extends State<CategoryList> {
                     );
                   },
                   child: const ListCard(
-                    imageUrl: 'https://i.pinimg.com/736x/ff/84/33/ff843394cb5bebe70910951349c337f5.jpg',
+                    imageUrl: 'https://t3.ftcdn.net/jpg/01/03/32/70/360_F_103327027_Q1xyMUkuBa70u40rViraUHTkDLQS2irJ.jpg',
                     title: 'YWS Wedding Hall In Siem Reap',
                     subtitle: 'Wedding Hall • 1km (12 min)',
                     price: '\$950/day',
@@ -135,7 +135,7 @@ class CategoryListState extends State<CategoryList> {
                     );
                   },
                   child: const ListCard(
-                    imageUrl: 'https://i.pinimg.com/736x/ec/d2/76/ecd276cb24fdf65148475e73ff5db27d.jpg',
+                    imageUrl: 'https://t3.ftcdn.net/jpg/01/03/32/70/360_F_103327027_Q1xyMUkuBa70u40rViraUHTkDLQS2irJ.jpg',
                     title: 'PKS Wedding Hall In Phnom Penh',
                     subtitle: 'Wedding Hall • 1.3km (14 min)',
                     price: '\$1250/day',

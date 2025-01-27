@@ -24,9 +24,7 @@ class EventAppScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(
-                  'https://i.pinimg.com/736x/ec/24/0b/ec240bd09f5f428b04406d3b6ba7bc05.jpg',
-                ),
+                image: NetworkImage('https://via.placeholder.com/150'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -69,7 +67,7 @@ class EventAppScreen extends StatelessWidget {
                       BoxShadow(
                         color: Colors.black.withOpacity(0.1),
                         blurRadius: 10,
-                        offset: Offset(0, -5),
+                        offset: const Offset(0, -5),
                       ),
                     ],
                   ),
@@ -98,10 +96,7 @@ class EventAppScreen extends StatelessWidget {
                       // Buttons
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignInScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.pink,

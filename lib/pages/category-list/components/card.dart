@@ -31,6 +31,24 @@ class ListCard extends StatelessWidget {
               height: 150,
               width: double.infinity,
               fit: BoxFit.cover,
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child; // Image has loaded.
+                return Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                        : null,
+                  ),
+                );
+              },
+              errorBuilder: (context, error, stackTrace) {
+                return const Center(
+                  child: Text(
+                    'Failed to load image',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                );
+              },
             ),
           ),
           Padding(
