@@ -60,18 +60,18 @@ class RePaymentPage extends StatelessWidget {
                 onPressed: () {
                   // Apply coupon action
                 },
-                icon: Icon(Icons.local_offer, color: Colors.pink),
-                label: Text(
+                icon: const Icon(Icons.local_offer, color: Colors.pink),
+                label: const Text(
                   'Apply Coupon',
                   style: TextStyle(color: Colors.pink),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink[50],
                   elevation: 0,
-                  side: BorderSide(color: Colors.pink),
+                  side: const BorderSide(color: Colors.pink),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Payment Breakdown Section
               const Text(
@@ -84,7 +84,7 @@ class RePaymentPage extends StatelessWidget {
                 children: [
                   _buildDetailRow('Pending Amount', pendingAmount),
                   _buildDetailRow('Tax', tax),
-                  Divider(),
+                  const Divider(),
                   _buildDetailRow('Total Due', total, isBold: true),
                 ],
               ),
