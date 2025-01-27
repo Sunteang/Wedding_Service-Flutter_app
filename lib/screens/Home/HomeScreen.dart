@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:wedding_service_app/data/api/category_api.dart';
 import 'package:wedding_service_app/data/api/auth_api.dart';
 import 'package:wedding_service_app/data/api/event_api.dart';
+import 'package:wedding_service_app/pages/category-list/List.dart';
+import 'package:wedding_service_app/pages/service/venues/Venues.dart';
 import 'package:wedding_service_app/utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
   final AuthAPI _authAPI = AuthAPI();
   final CategoryAPI _categoryAPI = CategoryAPI();
   final EventApi _eventAPI = EventApi();
@@ -49,12 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> fetchCategories() async {
     try {
-      final fetchedCategories = await _categoryAPI
-          .fetchCategories(queryParams: {'page': '1', 'perPage': '8'});
+      final fetchedCategories = await _categoryAPI.fetchCategories(queryParams: {'page': '1', 'perPage': '8'});
 
       setState(() {
-        categories =
-            List<Map<String, dynamic>>.from(fetchedCategories['data']['data']);
+        categories = List<Map<String, dynamic>>.from(fetchedCategories['data']['data']);
         isLoading = false;
       });
 
@@ -69,8 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> fetchEvents() async {
     try {
-      final fetchedEvents = await _eventAPI
-          .fetchEvents(queryParams: {'page': '1', 'perPage': '4'});
+      final fetchedEvents = await _eventAPI.fetchEvents(queryParams: {'page': '1', 'perPage': '4'});
 
       setState(() {
         events = List<Map<String, dynamic>>.from(fetchedEvents['data']['data']);
@@ -90,13 +91,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator()) // Show loading indicator
+          ? const Center(child: CircularProgressIndicator()) // Show loading indicator
           : Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                      top: 40, left: 16, right: 16, bottom: 16),
+                  padding: const EdgeInsets.only(top: 40, left: 16, right: 16, bottom: 16),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: const BorderRadius.only(
@@ -181,8 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             image: const DecorationImage(
-                              image: NetworkImage(
-                                  'https://t3.ftcdn.net/jpg/01/03/32/70/360_F_103327027_Q1xyMUkuBa70u40rViraUHTkDLQS2irJ.jpg'),
+                              image: NetworkImage('https://t3.ftcdn.net/jpg/01/03/32/70/360_F_103327027_Q1xyMUkuBa70u40rViraUHTkDLQS2irJ.jpg'),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -206,9 +204,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text(
-                            'Category',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                            'Popular Category',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                         ),
                         const SizedBox(height: 10),
@@ -217,8 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: GridView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 4,
                               childAspectRatio: 0.8,
                               crossAxisSpacing: 10,
@@ -231,14 +227,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               return GestureDetector(
                                 onTap: () {
                                   // Placeholder for navigation, replace with actual pages
-                                  print(
-                                      'Navigate to category: ${category['name']}');
+
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => CategoryList(id: category['id'], categoryName: category['name']), // Navigate to the page
+                                    ),
+                                  );
+                                  print('Navigate to category: ${category['name']}');
                                 },
                                 child: Column(
                                   children: [
                                     CircleAvatar(
-                                      backgroundImage:
-                                          NetworkImage(category['image']),
+                                      backgroundImage: NetworkImage(category['image']),
                                       radius: 30,
                                     ),
                                     const SizedBox(height: 5),
@@ -259,8 +260,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text(
                             'Popular Offers',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                         ),
                         const SizedBox(height: 10),
@@ -270,18 +270,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: events.map((event) {
                               return PopularOfferCard(
                                 title: event['name'] ?? 'Unknown Title',
-                                subtitle: Utility.trimText(
-                                    event['description'] ??
-                                        'No description available',
-                                    50),
-                                rating: event['rating'] != null
-                                    ? '${event['rating']} (N/A)'
-                                    : 'N/A',
+                                subtitle: Utility.trimText(event['description'] ?? 'No description available', 50),
+                                rating: event['rating'] != null ? '${event['rating']} (N/A)' : 'N/A',
                                 price: '\$${event['price'] ?? '0'}/event',
-                                location: event['location'] ??
-                                    'No location specified',
-                                imageUrl: event['image'] ??
-                                    'https://via.placeholder.com/150',
+                                location: event['location'] ?? 'No location specified',
+                                imageUrl: event['image'] ?? 'https://via.placeholder.com/150',
                               );
                             }).toList(),
                           ),
@@ -303,14 +296,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment
-                                      .start, // Align items at the top
+                                  crossAxisAlignment: CrossAxisAlignment.start, // Align items at the top
                                   children: [
                                     // Text and RichText on the left
                                     Expanded(
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Unleash the magic of\nphotography & Videography for',
@@ -354,8 +345,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     // Image on the right with border radius
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(
-                                          10), // Add border radius
+                                      borderRadius: BorderRadius.circular(10), // Add border radius
                                       child: Image.network(
                                         'https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI',
                                         height: 100,
@@ -388,36 +378,23 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               const SizedBox(height: 10),
                               Row(
-                                children: events
-                                    .take(2)
-                                    .toList()
-                                    .asMap()
-                                    .entries
-                                    .map((entry) {
+                                children: events.take(2).toList().asMap().entries.map((entry) {
                                   int index = entry.key;
                                   var event = entry.value;
 
                                   return Expanded(
                                     child: Padding(
                                       padding: EdgeInsets.only(
-                                          right: index <
-                                                  events.take(2).length - 1
-                                              ? 10.0
-                                              : 0.0), // Add spacing to all but the last card
+                                          right: index < events.take(2).length - 1 ? 10.0 : 0.0), // Add spacing to all but the last card
                                       child: BestDealCard(
                                         title: event['name'] ?? 'Unknown Title',
                                         subtitle: Utility.trimText(
-                                          event['description'] ??
-                                              'No description available',
+                                          event['description'] ?? 'No description available',
                                           50,
                                         ),
-                                        rating: event['rating'] != null
-                                            ? '${event['rating']} (N/A)'
-                                            : 'N/A',
-                                        price:
-                                            '\$${event['price'] ?? '0'}/event',
-                                        imageUrl: event['image'] ??
-                                            'https://via.placeholder.com/150',
+                                        rating: event['rating'] != null ? '${event['rating']}' : 'N/A',
+                                        price: '\$${event['price'] ?? '0'}/event',
+                                        imageUrl: event['image'] ?? 'https://via.placeholder.com/150',
                                       ),
                                     ),
                                   );
@@ -463,8 +440,7 @@ class PopularOfferCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius:
-                const BorderRadius.horizontal(left: Radius.circular(10)),
+            borderRadius: const BorderRadius.horizontal(left: Radius.circular(10)),
             child: Image.network(
               imageUrl,
               height: 120,
