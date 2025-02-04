@@ -7,13 +7,15 @@ void main() {
 
 class WeddingServiceApp extends StatelessWidget {
   // Add the Key parameter to the constructor
-  const WeddingServiceApp({Key? key}) : super(key: key);
+  const WeddingServiceApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: WelcomePage(),
     );
   }
 }
+
+

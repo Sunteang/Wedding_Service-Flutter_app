@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:wedding_service_app/screens/sign-in/SignInPage.dart';
+import 'package:wedding_service_app/screens/sign-in/signinscreen.dart';
 import 'package:wedding_service_app/screens/sign-up/SignUpPage.dart';
 
 class WelcomePage extends StatelessWidget {

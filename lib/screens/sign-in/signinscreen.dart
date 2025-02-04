@@ -5,11 +5,13 @@ import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 import 'package:wedding_service_app/screens/sign-up/SignUpPage.dart';
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
+
   @override
-  _SignInScreenState createState() => _SignInScreenState();
+  SignInScreenState createState() => SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class SignInScreenState extends State<SignInScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final AuthAPI _authAPI = AuthAPI();
@@ -42,19 +44,26 @@ class _SignInScreenState extends State<SignInScreen> {
       // Fetch and store the user data
       await _authAPI.getUser(token);
 
+      // Check if the widget is still mounted before navigating
+      if (!mounted) return;
+
       // Navigate to the main screen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => NavBar()),
       );
     } catch (e) {
+      if (!mounted) return;
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(e.toString())),
       );
     } finally {
-      setState(() {
-        isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          isLoading = false;
+        });
+      }
     }
   }
 
@@ -148,11 +157,10 @@ class _SignInScreenState extends State<SignInScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 16, horizontal: 100),
+                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 100),
                     ),
                     child: isLoading
-                        ? CircularProgressIndicator(color: Colors.white)
+                        ? const CircularProgressIndicator(color: Colors.white)
                         : const Text(
                             'Sign In',
                             style: TextStyle(fontSize: 16, color: Colors.white),
@@ -182,7 +190,6 @@ class _SignInScreenState extends State<SignInScreen> {
                         iconSize: 40,
                       ),
                       const SizedBox(width: 16),
-        
                     ],
                   ),
                 ],
@@ -198,10 +205,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
                     },
                     child: const Text(
                       'Sign Up',

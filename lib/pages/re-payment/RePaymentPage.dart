@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:wedding_service_app/pages/choose-payment/ChoosePayment.dart';
 import 'package:wedding_service_app/pages/messages/MessagesPage.dart';
-import 'package:wedding_service_app/pages/nav-bar/NavBar.dart';
 
 class RePaymentPage extends StatelessWidget {
+  const RePaymentPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Static Data
-    final String serviceName = 'Royal Gardens Service Provider';
-    final String location = 'K Mall, Veng Sreng Blvd, Phnom Penh';
-    final double pendingAmount = 500.0;
-    final double tax = 100.0;
-    final double total = pendingAmount + tax;
+    const String serviceName = 'Royal Gardens Service Provider';
+    const String location = 'K Mall, Veng Sreng Blvd, Phnom Penh';
+    const double pendingAmount = 500.0;
+    const double tax = 100.0;
+    const double total = pendingAmount + tax;
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           'Re-',
           style: TextStyle(color: Colors.black),
         ),
@@ -35,13 +36,13 @@ class RePaymentPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Outstanding Payment Details
-              Text(
+              const Text(
                 'Pending Payment Details',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey[300]!),
                   borderRadius: BorderRadius.circular(8),
@@ -53,7 +54,7 @@ class RePaymentPage extends StatelessWidget {
                   style: TextStyle(fontSize: 14, color: Colors.grey[700]),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Apply Coupon Button
               ElevatedButton.icon(
@@ -109,22 +110,22 @@ class RePaymentPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     ),
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
                       // Apply coupon action
                     },
-                    icon: Icon(Icons.access_time, color: Colors.orange),
-                    label: Text(
+                    icon: const Icon(Icons.access_time, color: Colors.orange),
+                    label: const Text(
                       'Pending',
                       style: TextStyle(color: Colors.orange),
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange[50],
                       elevation: 0,
-                      side: BorderSide(color: Colors.orange),
+                      side: const BorderSide(color: Colors.orange),
                     ),
                   ),
                 ],
