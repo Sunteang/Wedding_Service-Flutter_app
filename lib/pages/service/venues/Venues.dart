@@ -7,11 +7,11 @@ class VenuesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Venue'),
+        title: const Text('Venue'),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(
                 context, MaterialPageRoute(builder: (context) => NavBar()));
@@ -23,7 +23,7 @@ class VenuesPage extends StatelessWidget {
           // List of venues
           Expanded(
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               children: [
                 GestureDetector(
                   onTap: () {
@@ -33,7 +33,7 @@ class VenuesPage extends StatelessWidget {
                           builder: (context) => VenueDetailsPage()),
                     );
                   },
-                  child: VenueCard(
+                  child: const VenueCard(
                     imageUrl:
                         'https://i.pinimg.com/736x/ec/d2/76/ecd276cb24fdf65148475e73ff5db27d.jpg',
                     title: 'PKS Wedding Hall In Phnom Penh',
@@ -50,7 +50,7 @@ class VenuesPage extends StatelessWidget {
                           builder: (context) => VenueDetailsPage()),
                     );
                   },
-                  child: VenueCard(
+                  child: const VenueCard(
                     imageUrl:
                         'https://i.pinimg.com/736x/ff/84/33/ff843394cb5bebe70910951349c337f5.jpg',
                     title: 'YWS Wedding Hall In Siem Reap',
@@ -67,7 +67,7 @@ class VenuesPage extends StatelessWidget {
                           builder: (context) => VenueDetailsPage()),
                     );
                   },
-                  child: VenueCard(
+                  child: const VenueCard(
                     imageUrl:
                         'https://i.pinimg.com/736x/ac/2e/fb/ac2efbb6bfa9b64c227d76e81d9ca0a7.jpg',
                     title: 'AC Royal In Phnom Penh',
@@ -84,7 +84,7 @@ class VenuesPage extends StatelessWidget {
                           builder: (context) => VenueDetailsPage()),
                     );
                   },
-                  child: VenueCard(
+                  child: const VenueCard(
                     imageUrl:
                         'https://i.pinimg.com/736x/ff/84/33/ff843394cb5bebe70910951349c337f5.jpg',
                     title: 'YWS Wedding Hall In Siem Reap',
@@ -101,7 +101,7 @@ class VenuesPage extends StatelessWidget {
                           builder: (context) => VenueDetailsPage()),
                     );
                   },
-                  child: VenueCard(
+                  child: const VenueCard(
                     imageUrl:
                         'https://i.pinimg.com/736x/ec/d2/76/ecd276cb24fdf65148475e73ff5db27d.jpg',
                     title: 'PKS Wedding Hall In Phnom Penh',
@@ -116,7 +116,7 @@ class VenuesPage extends StatelessWidget {
 
           // Bottom Sort and Filter Buttons
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -124,7 +124,7 @@ class VenuesPage extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.1),
                   spreadRadius: 1,
                   blurRadius: 5,
-                  offset: Offset(0, -2),
+                  offset: const Offset(0, -2),
                 ),
               ],
             ),
@@ -135,8 +135,8 @@ class VenuesPage extends StatelessWidget {
                   onPressed: () {
                     // Sort action
                   },
-                  icon: Icon(Icons.sort, color: Colors.pink),
-                  label: Text(
+                  icon: const Icon(Icons.sort, color: Colors.pink),
+                  label: const Text(
                     'Sort',
                     style: TextStyle(color: Colors.pink),
                   ),
@@ -149,8 +149,8 @@ class VenuesPage extends StatelessWidget {
                   onPressed: () {
                     // Filter action
                   },
-                  icon: Icon(Icons.filter_alt, color: Colors.pink),
-                  label: Text(
+                  icon: const Icon(Icons.filter_alt, color: Colors.pink),
+                  label: const Text(
                     'Filter',
                     style: TextStyle(color: Colors.pink),
                   ),
@@ -162,7 +162,7 @@ class VenuesPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
     );
@@ -176,7 +176,7 @@ class VenueCard extends StatelessWidget {
   final String price;
   final double rating;
 
-  VenueCard({
+  const VenueCard({
     required this.imageUrl,
     required this.title,
     required this.subtitle,
@@ -187,14 +187,14 @@ class VenueCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.only(bottom: 16),
+      margin: const EdgeInsets.only(bottom: 16),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Venue Image
           ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
             child: Image.network(
               imageUrl,
               height: 150,
@@ -214,7 +214,7 @@ class VenueCard extends StatelessWidget {
                     Expanded(
                       child: Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -223,11 +223,11 @@ class VenueCard extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.star, color: Colors.orange, size: 16),
-                        SizedBox(width: 4),
+                        const Icon(Icons.star, color: Colors.orange, size: 16),
+                        const SizedBox(width: 4),
                         Text(
                           rating.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14,
                             color: Colors.grey,
                           ),
@@ -236,20 +236,20 @@ class VenueCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 // Subtitle
                 Text(
                   subtitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14,
                     color: Colors.grey,
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 // Price
                 Text(
                   price,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.red,

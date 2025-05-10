@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../screens/Home/BookingsPage.dart';
 import '../../screens/Home/OffersPage.dart';
 import '../../screens/Home/AccountPage.dart';
-import '../../screens/Home/HomeScreen.dart';
+import '../../screens/Home/home_screen.dart';
 
 class NavBar extends StatefulWidget {
   @override
